@@ -3,7 +3,7 @@ whenPageLoads {
   mySprite = new Sprite(0, 0, "toilet-paper.png");
   mySprite.hide();
   mySprite.setYTo(-150);
-  forever(function(){
+  forever({
     force = random(8, 25);
     mySprite.setXTo(random(-230, 230));
     mySprite.pointInDirection(center);
