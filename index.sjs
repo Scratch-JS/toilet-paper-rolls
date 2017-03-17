@@ -8,7 +8,7 @@ whenPageLoads {
     mySprite.setXTo(random(-230, 230));
     mySprite.pointInDirection(center);
     mySprite.turn(random(-20, 20));
-    mySprite.clone();
+    clone = mySprite.clone();
     mySprite.wait(random(200, 800));
   });
 }
