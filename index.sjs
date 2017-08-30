@@ -9,6 +9,20 @@ whenPageLoads {
     mySprite.pointInDirection(center);
     mySprite.turn(random(-20, 20));
     clone = mySprite.clone();
-    mySprite.wait(random(200, 800));
-  });
+    clone.show();
+    xspeed = Math.sin(mySprite.direction) * force;
+    yspeed = Math.cos(mySprite.direction) * force;
+    while (clone.x > -240 || clone.x < 240 || clone.y > -180) {
+      wait(1).then({
+        yspeed--;
+        clone.changeXBy(xspeed);
+        clone.changeYBy(yspeed);
+        clone.pointInDirection(Math.atan(xspeed / yspeed));
+        if(yspeed < 0) {
+          clone.turn(-180);
+        }
+      })
+    }
+    clone.delete();
+  }, random(200, 800));
 }
